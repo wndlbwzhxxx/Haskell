@@ -77,6 +77,9 @@ myProduct [] = error "list is empty"
 myProduct [xs] = xs
 myProduct (x : xs) = x * myProduct xs
 
+myProductf :: [Int] -> Int
+myProductf xs = foldr (*) 1 xs 
+
 -- myZip - попарное объединение двух списков в список пар, длина итогового списка по длине самого короткого из входных списков
 
 myZip :: [a] -> [b] -> [(a, b)]
