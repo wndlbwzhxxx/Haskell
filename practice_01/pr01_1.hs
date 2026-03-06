@@ -6,7 +6,6 @@ module Pr01_1 where
 import System.Win32 (xBUTTON1, COORD (yPos))
 
 {-
-
 Напишите реализацию функций myFST, mySND, myTHRD для кортежа (a,b,c)
 
 Напишите реализацию стандартных функции для работы со списками:
@@ -99,7 +98,7 @@ myZip3 (x : xs) (y : ys) (z : zs) = (x, y, z) : myZip3 xs ys zs
 
 myUnzip0 :: [(a,b)] -> ([a],[b])
 myUnzip0 [] = ([], [])
-myUnzip0 ((x,y): xys) = (x : xs, y : ys) 
+myUnzip0 ((x,y): xys) = (x : xs, y : ys)
     where (xs, ys) = myUnzip0 xys
 
 myUnzip1 :: [(a,b)] -> ([a],[b])

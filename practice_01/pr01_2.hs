@@ -25,8 +25,6 @@ module Pr01_2 where
 
 -}
 
--- myUnzipSave (myZipSave [...] [...]) для проверки
-
 -- myZipSave - попарное объединение двух списков в список пар и сохранение хвоста более длинного списка 
 
 myZipSave :: [a] -> [b] -> ([(a, b)], Either [a] [b])
@@ -129,7 +127,6 @@ data Ingredient = Oil Grams
                 | Sugar Grams
                 | BakingPowder Grams
                 | Milk Milliliters
-                | Berries Grams
                 | Cream Milliliters
                 | Lemon Grams
                 | LemonZest Grams
@@ -194,8 +191,6 @@ isBakingPowder (BakingPowder _) = True
 isBakingPowder _ = False
 isMilk (Milk _) = True
 isMilk _ = False
-isBerries (Berries _) = True
-isBerries _ = False
 isCream (Cream _) = True
 isCream _ = False
 isLemon (Lemon _) = True
@@ -585,7 +580,7 @@ bakeCake _ _ = Left "ERROR: unknown dough type"
 
 -- Проверка
 
-chocoIngs = [Oil (Grams 200), Chocolate (Grams 250), Egg (Pieces 4), 
+chocoIngs = [Oil (Grams 200), Chocolate (Grams 250), Egg (Pieces 2), 
              Flour (Grams 300), Sugar (Grams 220), BakingPowder (Grams 15), 
              Milk (Milliliters 250)]
 chocoResult = makeChocolateCake chocoIngs
@@ -609,3 +604,24 @@ redVelvetIngs = [Flour (Grams 350), Sugar (Grams 280), Egg (Pieces 3),
                  FoodColoring "Red", Vinegar (Milliliters 15), 
                  BakingPowder (Grams 15), Salt (Grams 5)]
 redResult = makeRedVelvet redVelvetIngs
+
+
+ffun :: Maybe [a -> b] -> Maybe [a] -> Maybe [b]
+ffun xs Nothing = Nothing
+ffun Nothing ys = Nothing
+ffun (Just xs) (Just ys) =  Just (doing xs ys)
+    where doing [] _ = []
+          doing _ [] = []
+          doing (f:fs) (k:ks) = f k : doing fs ks
+
+
+ffun' :: Either [a -> b] [c] -> Either [a] [c] -> Either [b] [c]
+ffun' xs (Right r) = Right r
+ffun' (Right r) ys = Right r
+ffun' (Left xs) (Left ys) =  Left (doing xs ys)
+    where doing [] _ = []
+          doing _ [] = []
+          doing (f:fs) (k:ks) = f k : doing fs ks
+
+-- data Maybe a    = Nothing | Just a
+-- data Either a b =  Left a | Right b
