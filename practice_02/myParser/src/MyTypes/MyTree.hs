@@ -2,13 +2,13 @@ module MyTypes.MyTree (MyTree(..)) where
 
 data MyTree a = Leaf a | Node a (MyTree a) (MyTree a) deriving (Show, Eq)
 
-instance Functor MyTree where
-    fmap f (Leaf x) = Leaf (f x)
-    fmap f (Node x left right) = Node (f x) (fmap f left) (fmap f right)
-
 instance Foldable MyTree where
     foldMap f (Leaf x) = f x
     foldMap f (Node x left right) = foldMap f left <> f x <> foldMap f right
+
+instance Functor MyTree where
+    fmap f (Leaf x) = Leaf (f x)
+    fmap f (Node x left right) = Node (f x) (fmap f left) (fmap f right)
 
 instance Applicative MyTree where
     pure x = Leaf x
@@ -29,11 +29,6 @@ instance Applicative MyTree where
    let tree1 = Node 42 (Leaf 17) (Node 99 (Leaf 33) (Leaf 76))
    foldr (+) 0 tree1
    -- 267 (42+17+99+33+76)
-   foldMap show tree1
-   -- "4217993376"
-   import Data.Monoid (Sum(..))
-   foldMap Sum tree1
-   -- Sum {getSum = 267}
 
 2. Functor:
    let tree2 = Node 13 (Leaf 7) (Leaf 666)

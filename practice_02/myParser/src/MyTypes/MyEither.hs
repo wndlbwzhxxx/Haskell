@@ -2,10 +2,6 @@ module MyTypes.MyEither (MyEither(..)) where
 
 data MyEither a b = MyLeft a | MyRight b deriving (Show, Eq, Ord)
 
-instance Functor (MyEither a) where
-    fmap _ (MyLeft x) = MyLeft x
-    fmap f (MyRight y) = MyRight (f y)
-
 instance Foldable (MyEither a) where
     foldr _ z (MyLeft _) = z
     foldr f z (MyRight y) = f y z
@@ -17,6 +13,10 @@ instance Semigroup b => Semigroup (MyEither a b) where
     (MyLeft x) <> _ = MyLeft x
     _ <> (MyLeft y) = MyLeft y
     (MyRight x) <> (MyRight y) = MyRight (x <> y)
+
+instance Functor (MyEither a) where
+    fmap _ (MyLeft x) = MyLeft x
+    fmap f (MyRight y) = MyRight (f y)
 
 instance Applicative (MyEither a) where
     pure = MyRight

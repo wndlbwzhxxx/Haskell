@@ -2,10 +2,6 @@ module MyTypes.MyMaybe (MyMaybe(..)) where
 
 data MyMaybe a = MyNothing | MyJust a deriving (Show, Eq, Ord)
 
-instance Functor MyMaybe where
-    fmap _ MyNothing = MyNothing
-    fmap f (MyJust x) = MyJust (f x)
-
 instance Foldable MyMaybe where
     foldr _ z MyNothing = z
     foldr f z (MyJust x) = f x z
@@ -21,6 +17,10 @@ instance Semigroup a => Semigroup (MyMaybe a) where
 instance Semigroup a => Monoid (MyMaybe a) where
     mempty = MyNothing
     mappend = (<>)
+
+instance Functor MyMaybe where
+    fmap _ MyNothing = MyNothing
+    fmap f (MyJust x) = MyJust (f x)
 
 instance Applicative MyMaybe where
     pure = MyJust
