@@ -1,51 +1,32 @@
 module MyParsers.ParsecParser (
+    digitParsec,
+    digitsParsec,
+    multParsec,
+    plusParsec,
     plusOrMultParsec,
     runParserParsec
 ) where
 
 import Text.Parsec
 import Text.Parsec.String (Parser)
-import Data.Char (isDigit)
+import Data.Char (isDigit, digitToInt)
 import MyTypes.MyMaybe
+import qualified Control.Applicative as A
 
 digitParsec :: Parser Int
-digitParsec = do
-    c <- oneOf "0123456789"
-    return (digitToInt c)
-  where
-    digitToInt '0' = 0
-    digitToInt '1' = 1
-    digitToInt '2' = 2
-    digitToInt '3' = 3
-    digitToInt '4' = 4
-    digitToInt '5' = 5
-    digitToInt '6' = 6
-    digitToInt '7' = 7
-    digitToInt '8' = 8
-    digitToInt '9' = 9
-    digitToInt _ = error "Not a digit"
+digitParsec = digitToInt <$> satisfy isDigit
 
 digitsParsec :: Parser Int
-digitsParsec = do
-    ds <- many1 digitParsec
-    return (foldl (\acc d -> acc * 10 + d) 0 ds)
+digitsParsec = fmap (foldl (\x y -> x * 10 + y) 0) (many1 digitParsec)
 
 multParsec :: Parser Int
-multParsec = do
-    x <- digitsParsec
-    char '*'
-    y <- digitsParsec
-    return (x * y)
+multParsec = (*) <$> digitsParsec <* char '*' <*> digitsParsec
 
 plusParsec :: Parser Int
-plusParsec = do
-    x <- digitsParsec
-    char '+'
-    y <- digitsParsec
-    return (x + y)
+plusParsec = (+) <$> digitsParsec <* char '+' <*> digitsParsec
 
 plusOrMultParsec :: Parser Int
-plusOrMultParsec = multParsec <|> plusParsec
+plusOrMultParsec = multParsec A.<|> plusParsec
 
 runParserParsec :: Parser Int -> String -> MyMaybe Int
 runParserParsec p input = 

@@ -1,6 +1,10 @@
-module Main where
+-- Запрос: как убрать предупреждение о неиспользуемых импортах
+{-# OPTIONS_GHC -Wno-unused-imports #-}
+module Main (main) where
 
-import MyTypes.MyMaybe
+import MyTypes.MyMaybe (MyMaybe(..))
+import MyTypes.MyTree (MyTree(..))
+import MyTypes.MyEither (MyEither(..))
 import MyParsers.MyParser (plusOrMult, runParser)
 import MyParsers.ParsecParser (plusOrMultParsec, runParserParsec)
 import MyParsers.AttoparsecParser (plusOrMultAttoparsec, runParserAttoparsec)

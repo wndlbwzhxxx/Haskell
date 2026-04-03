@@ -10,6 +10,7 @@ module MyParsers.MyParser (
 
 import MyTypes.MyMaybe
 import Data.Char (isDigit)
+import Control.Applicative (Alternative(empty, (<|>)))
 
 newtype Parser tok a = Parser {runParser :: [tok] -> MyMaybe ([tok], a)}
 
