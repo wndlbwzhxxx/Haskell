@@ -5,7 +5,7 @@
 #endif
 {-# OPTIONS_GHC -fno-warn-missing-import-lists #-}
 {-# OPTIONS_GHC -w #-}
-module Paths_MyEvolProject (
+module Paths_myEvolProject2 (
     version,
     getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir,
     getDataFileName, getSysconfDir
@@ -47,18 +47,18 @@ getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: 
 
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 bindir     = "C:\\cabal\\bin"
-libdir     = "C:\\cabal\\x86_64-windows-ghc-9.6.7\\MyEvolProject-0.1.0.0-inplace-MyEvolProject"
-dynlibdir  = "C:\\cabal\\x86_64-windows-ghc-9.6.7"
-datadir    = "C:\\cabal\\x86_64-windows-ghc-9.6.7\\MyEvolProject-0.1.0.0"
-libexecdir = "C:\\cabal\\MyEvolProject-0.1.0.0-inplace-MyEvolProject\\x86_64-windows-ghc-9.6.7\\MyEvolProject-0.1.0.0"
+libdir     = "C:\\cabal\\x86_64-windows-ghc-9.14.1-bd8b\\myEvolProject2-0.1.0.0-inplace-myEvolProject2"
+dynlibdir  = "C:\\cabal\\x86_64-windows-ghc-9.14.1-bd8b"
+datadir    = "C:\\cabal\\x86_64-windows-ghc-9.14.1-bd8b\\myEvolProject2-0.1.0.0"
+libexecdir = "C:\\cabal\\myEvolProject2-0.1.0.0-inplace-myEvolProject2\\x86_64-windows-ghc-9.14.1-bd8b\\myEvolProject2-0.1.0.0"
 sysconfdir = "C:\\cabal\\etc"
 
-getBinDir     = catchIO (getEnv "MyEvolProject_bindir")     (\_ -> return bindir)
-getLibDir     = catchIO (getEnv "MyEvolProject_libdir")     (\_ -> return libdir)
-getDynLibDir  = catchIO (getEnv "MyEvolProject_dynlibdir")  (\_ -> return dynlibdir)
-getDataDir    = catchIO (getEnv "MyEvolProject_datadir")    (\_ -> return datadir)
-getLibexecDir = catchIO (getEnv "MyEvolProject_libexecdir") (\_ -> return libexecdir)
-getSysconfDir = catchIO (getEnv "MyEvolProject_sysconfdir") (\_ -> return sysconfdir)
+getBinDir     = catchIO (getEnv "myEvolProject2_bindir")     (\_ -> return bindir)
+getLibDir     = catchIO (getEnv "myEvolProject2_libdir")     (\_ -> return libdir)
+getDynLibDir  = catchIO (getEnv "myEvolProject2_dynlibdir")  (\_ -> return dynlibdir)
+getDataDir    = catchIO (getEnv "myEvolProject2_datadir")    (\_ -> return datadir)
+getLibexecDir = catchIO (getEnv "myEvolProject2_libexecdir") (\_ -> return libexecdir)
+getSysconfDir = catchIO (getEnv "myEvolProject2_sysconfdir") (\_ -> return sysconfdir)
 
 
 

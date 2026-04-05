@@ -1,7 +1,7 @@
 {-# LANGUAGE NoRebindableSyntax #-}
 {-# OPTIONS_GHC -fno-warn-missing-import-lists #-}
 {-# OPTIONS_GHC -w #-}
-module PackageInfo_MyEvolProject (
+module PackageInfo_myEvolProject2 (
     name,
     version,
     synopsis,
@@ -13,7 +13,7 @@ import Data.Version (Version(..))
 import Prelude
 
 name :: String
-name = "MyEvolProject"
+name = "myEvolProject2"
 version :: Version
 version = Version [0,1,0,0] []
 
