@@ -1,0 +1,10 @@
+start:Mondstadt City Gate::::east
+dragonspine:Frozen Mountain Peak:west:south::
+liyue_harbor:Busy Harbor Port:south:east:north:dragonspine
+qingce_village:Bamboo Forest Village:north:south::
+jueyun_karst:Mysterious Mountain Range:west:south::
+chasm:Deep Underground Mines:north:east::
+inazuma_city:Electro Archon's Capital:south:north:west:chasm
+narukami_shrine:Sacred Shrine on the Mountain:west:south:north:inazuma_city
+abandoned_ruins:Abandoned Ruins:east:::
+finish:Exit from Labyrinth:north:::

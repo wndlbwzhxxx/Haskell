@@ -26,6 +26,8 @@ source-repository head
 library
   exposed-modules:
       MyStateT
+      MazeTypes
+      MazeLoader
   other-modules:
       Paths_labirint_game
   autogen-modules:

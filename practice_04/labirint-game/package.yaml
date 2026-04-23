@@ -40,6 +40,8 @@ library:
   source-dirs: src
   exposed-modules:
     - MyStateT
+    - MazeTypes
+    - MazeLoader
 
 executables:
   labirint-game-exe:
