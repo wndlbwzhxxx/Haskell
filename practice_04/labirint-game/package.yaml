@@ -42,6 +42,7 @@ library:
     - MyStateT
     - MazeTypes
     - MazeLoader
+    - GameMonad
 
 executables:
   labirint-game-exe:

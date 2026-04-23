@@ -28,6 +28,7 @@ library
       MyStateT
       MazeTypes
       MazeLoader
+      GameMonad
   other-modules:
       Paths_labirint_game
   autogen-modules:

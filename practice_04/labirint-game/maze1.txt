@@ -1,0 +1,25 @@
+start:City Gates of Mondstadt:cathedral::knights:timaeus
+cathedral:Mondstadt Cathedral:noblesse:start:catacombs:
+noblesse:Domain of Guyun:stone_forest:cathedral::
+stone_forest:Stone Forest:whispering_woods:noblesse::
+whispering_woods:Whispering Woods:statue:stone_forest::
+statue:Statue of The Seven:ruins:whispering_woods::
+ruins:Ancient Ruins:finish:start::
+finish:Exit from Labyrinth::ruins::
+knights:Knights of Favonius:library:start::andrius
+library:Library of Masters:inazuma_city::knights:
+andrius:Andrius Domain:liyue_harbor:::knights
+timaeus:Timaeus Workshop:wolvendom::start:
+wolvendom:Wolvendom Territory:springvale::timaeus:
+springvale:Springvale Village:windrise::wolvendom:
+windrise:Windrise Tree:narukami_shrine:springvale::
+catacombs:Catacombs of Mondstadt:::cathedral:
+inazuma_city:Inazuma City:ritou:narukami_shrine:library::
+ritou:Ritou Island:inazuma_city::narukami_shrine:
+narukami_shrine:Grand Narukami Shrine:magatsu_kannagara:inazuma_city:windrise
+magatsu_kannagara:Magatsu Kannagara:fort_hiraumi:narukami_shrine::
+fort_hiraumi:Fort Hiraumi:seiraimaru:magatsu_kannagara::
+seiraimaru:Seiraimaru:finish:fort_hiraumi::
+liyue_harbor:Liyue Harbor:qingce_village:chasm:andrius:
+qingce_village:Qingce Village:liyue_harbor:::
+chasm:The Chasm::liyue_harbor:
